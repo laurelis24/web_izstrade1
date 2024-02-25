@@ -10,6 +10,7 @@ const imageGalery = document.querySelector(".image-galery-container");
 const factText = document.querySelector(".fact");
 const video = document.querySelector(".video");
 const videoLoadingScreen = document.querySelector(".video-loading-screen");
+const scrollUpBtn = document.querySelector(".btn-scroll-up")
 video.onloadeddata = e => {
   setInterval(() => {
     videoLoadingScreen.classList.add("hide");
@@ -20,6 +21,7 @@ let imgIdx = 0;
 let factIdx = 0;
 let previousScrollPos = window.scrollY;
 let timeOut = 0;
+
 
 const tigerFacts = [
   "Tīģera acis ir apaļas atšķirībā no mājas kaķiem. Kam tās ir mazliet sašaurinātas. Tas tāpēc, ka citi kaķi labāk medi naktīs, bet tīģeri krēslas laikā, galvanokārt no rīta un vakarā.",
@@ -41,13 +43,17 @@ Array.from(imageGalery.children).forEach((img, idx) => {
 exitGaleryBtn.addEventListener("click", closeGaleryModal);
 leftGaleryBtn.addEventListener("click", decreaseImgIdx);
 rightGaleryBtn.addEventListener("click", increaseImgIdx);
+scrollUpBtn.addEventListener("click", scrollUp);
+
 window.addEventListener("resize", () => {
   if ((window.innerWidth <= 1000 || window.innerHeight <= 300) && !galeryModal.className.includes("close")) {
     galeryModal.classList.add("close");
   }
 });
-
-window.addEventListener("scroll", () => showHideNavbar());
+window.addEventListener("scroll", () => {
+  showHideNavbar();
+  hideScrollUpBtn();
+});
 
 function closeGaleryModal() {
   if (!galeryModal.className.includes("close")) {
@@ -151,4 +157,17 @@ function showHideNavbar() {
       navbar.classList.remove("hide");
     }
   }
+}
+
+function hideScrollUpBtn() {
+  let half = body.scrollHeight / 3;
+  if (window.scrollY >= half && scrollUpBtn.className.includes("hide")) {
+    scrollUpBtn.classList.remove("hide");
+  } else if (window.scrollY < half && !scrollUpBtn.className.includes("hide")) {
+    scrollUpBtn.classList.add("hide")
+  }
+}
+
+function scrollUp() {
+  window.scroll(0, 0);
 }
