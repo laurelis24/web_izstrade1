@@ -1,2 +1,6 @@
-# web_izstrade1
-Small html, css, javascript project for school
+# Web izstrāde 1.darbs
+Lauris Kairo
+Programmēšananas speciālists 
+1.kurss
+Ventspils
+Mazs html, css, javascript projekts

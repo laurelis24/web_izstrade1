@@ -1,25 +1,175 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My book website</title>
-    <script type="module" src="script.js" defer></script>
-    
-    <link rel="stylesheet" href="css.css">
+    <title>Par tīģeriem - Lauris Kairo</title>
+    <meta name="description" content="Laura Kairo 1. praktiskais darbs kursā Web izstrāde (2024)." />
+    <link rel="stylesheet" href="css.css" />
+    <script src="script.js" defer></script>
+    <link rel="icon" href="images/tiger_test.png" />
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Ikonas -->
+    <script src="https://kit.fontawesome.com/686d1966cc.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h1>Lauris Kairo</h1>
-    <input id="book-title-input" type="text" placeholder="Search for book title..." />
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat hic sapiente ullam,
-      architecto asperiores, vel maiores voluptas iure minima dolor fuga repudiandae debitis, illum
-      natus voluptatibus praesentium excepturi tempora eligendi nisi laudantium aspernatur
-      laboriosam dolorum vitae eveniet? Molestias, ducimus nisi.
-    </p>
+    <nav class="nav-bar">
+      <ul class="nav-list">
+        <li>
+          <a href="/index.html"><span>Sākums</span></a>
+        </li>
+        <li>
+          <a href="#galery-title"><span>Galerija</span></a>
+        </li>
+        <li>
+          <a  href="#video-title"><span>Video</span></a>
+        </li>
+        <li>
+          <a href="#facts-title"><span>Fakti</span></a>
+        </li>
+      </ul>
+      <img class="tiger-logo" src="/images/tiger_test.png" alt="Tīģera logo" />
+    </nav>
 
-    <section class="books-section">
-      
+    <div id="video-title" class="video-container">
+      <video loop autoplay muted class="video" src="/video/tiger.mp4"></video>
+      <div class="video-loading-screen">
+        <div class="circle">
+            <!-- Circle animation -->
+        </div>
+      </div>
+    </div>
+
+    <h1 class="title-info">Par Tīģeriem</h1>
+
+    <main class="about-tigers">
+      <div class="info-container">
+        <i class="fa-solid fa-circle-info info-icon"></i>
+        <p>
+          <img src="/images/tiger1.jpg" alt="Tīģera attēls" />
+          Tīģeris ir lielākais kaķu dzimtas pārstāvis. Lielākās tīģera pasugas var salīdzināt ar aizvēsturiskajiem,
+          izmirušajiem lielajiem kaķiem, to ķermeņa garums sasniedz 3,3 metrus, masa — 300 kilogramus, ilkņi var būt 10
+          centimetrus gari. Tīģerim ir deviņas pasugas, no kurām trīs ir izmirušas. Atlikušo sešu pasugu izdzīvošana ir
+          apdraudēta. Tos apdraud pieejamās dzīves vietas samazināšanās, izplatības fragmentācija un medības. Visbiežāk
+          sastopamā tīģera pasuga ir Bengālijas tīģeris, bet vislielākā ir Amūras tīģeris.
+        </p>
+      </div>
+      <div class="info-container">
+        <i class="fa-solid fa-circle-info info-icon"></i>
+        <p>
+          <img src="/images/tiger2.jpg" alt="Tīģera attēls" />
+          Tīģeris ir tīri aziātiska suga, vairāk austrumaziātiska. Suga attīstījās Āzijas austrumos pleistocēna sākumā
+          (pirms apm. 2 miljoniem gadu). Pirms apmēram 10 000 gadiem tīģeri pārvietojās gan uz dienvidiem pāri Himalaju
+          kalniem un izplatījās pa visu Indiju, gan uz ziemeļiem līdz Beringa jūrai. Vēl 1900. gadā tīģeri apdzīvoja
+          Kazahstanu, Ziemeļirānu, Amūras ieteku un Zunda salas. Mūsdienās šo teritoriju lielākajā daļā tīģeri ir
+          iznīcināti. Piejūras novadā (Krievija) ir palikusi neliela Amūras tīģeru populācija. Kopumā ir izdzīvojuši
+          apmēram 7% no visas kādreizējās tīģeru populācijas. Tā izplatība ir ļoti sadrumstalota un fragmentāra, tas
+          sastopams nelielās, izolētās teritorijās sākot ar Indijas un Ķīnas rietumiem un beidzot ar Dienvidaustrumāziju
+          austrumos. Ziemeļu robeža tīģera izplatībai ir Amūras upe Sibīrijas austrumos. Vienīgā sala, kurā mūsdienās ir
+          sastopams tīģeris, ir Sumatra. Kopš 20. gadsimta tas vairs nav sastopams Bali un Javas salās. Par tīģeriem
+          Borneo salā liecina tikai fosiliju atradumi.
+        </p>
+      </div>
+      <div class="info-container">
+        <i class="fa-solid fa-circle-info info-icon"></i>
+        <p>
+          <img src="/images/tiger3.jpg" alt="Tīģera attēls" />
+          Tīģeri apdzīvo dažādas vides, tai skaitā mangrovju purvus, bambusa audzes tropos, ar krūmiem aizaugušus mežus
+          vēsākos apgabalos, tuksnešainas un akmeņainas pauguraines, kā arī taigu ziemeļos. Kalnos tie mājo līdz 3000
+          metriem virs jūras līmeņa. Atkarībā no dzīvošanas apstākļiem, medījuma daudzuma un tīģera dzimuma, katra
+          indivīda medību apgabals var būt no 30 līdz 3000 km².
+        </p>
+      </div>
+      <section class="tables-container">
+        <i class="fa-solid fa-circle-info info-icon"></i>
+        <table class="table">
+          <tr>
+            <th>Suga</th>
+            <th>Izplatība</th>
+            <th>Izskats</th>
+          </tr>
+          <tr>
+            <td>Bengālijas tīģeris</td>
+            <td>Tropu meži</td>
+            <td>Zeltaini oranžš un svītrains kažoks</td>
+          </tr>
+          <tr>
+            <td>Sumatras tīģeris</td>
+            <td>Sumatras meži</td>
+            <td>Rudi brūns kažoks ar koši melnām strīpām</td>
+          </tr>
+          <tr>
+            <td>Amūras tīģeris</td>
+            <td>Koku meži</td>
+            <td>Dzeltenbrūns kažoks</td>
+          </tr>
+          <tr>
+            <td>Indoķīnas tīģeris</td>
+            <td>Tropu meži</td>
+            <td>Koši ruds kažoks</td>
+          </tr>
+          <tr>
+            <td>Malajas tīģeris</td>
+            <td>Malajas meži</td>
+            <td>Koši ruds kažoks</td>
+          </tr>
+        </table>
+      </section>
+    </main>
+
+    <h1 id="galery-title" class="title-pictures">Galerija</h1>
+    <section class="image-galery-container">
+      <img src="/images/galery/tiger_galery_1.jpg" alt="Tīģeris1" />
+      <img src="/images/galery/tiger_galery_2.jpg" alt="Tīģeris2" />
+      <img src="/images/galery/tiger_galery_3.jpg" alt="Tīģeris3" />
+      <img src="/images/galery/tiger_galery_4.jpg" alt="Tīģeris4" />
+      <img src="/images/galery/tiger_galery_5.jpg" alt="Tīģeris5" />
+      <img src="/images/galery/tiger_galery_6.jpg" alt="Tīģeris6" />
     </section>
+
+    <!--  
+    <section class="table-section">
+      <div class="table-grid-container">
+
+      </div>
+    </section>
+-->
+
+    <div class="galery-modal close">
+      <button class="btn-g-exit"><i class="fa-solid fa-xmark"></i></button>
+
+      <div class="show-image-container">
+        <button class="btn btn-left"><i class="fa-solid fa-arrow-left"></i></button>
+        <div class="image-container">
+          <img id="galery-img" src="/images/galery/tiger_galery_1.jpg" alt="" />
+        </div>
+        <button class="btn btn-right"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <h1 id="facts-title" class="title-facts">Interesanti fakti</h1>
+    <section class="facts-section">
+      <div class="facts-container">
+        <div class="fact">
+          <!-- teksts -->
+        </div>
+      </div>
+    </section>
+
+    <button class="btn-scroll-up">
+      <i class="fa-solid fa-arrow-up-long"></i>
+    </button>
+
+    <footer class="footer-container">
+      <h5>&#169; Lauris Kairo. All rights reserved.</h5>
+    </footer>
   </body>
 </html>
