@@ -14,18 +14,34 @@ body {
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  font-size: 1.1rem;
-  background: linear-gradient(rgb(222, 217, 147), rgba(232, 134, 23, 0.598));
+  font-size: 1.2rem;
+  background: linear-gradient(rgb(222, 217, 147), rgba(232, 134, 23, 0.5));
   z-index: 0;
   overflow-x: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  background-image: url("/images/jungle.jpg");
+  background-color: rgba(242, 243, 239, 0.259);
+  background-size: cover;
+  background-repeat: none;
+  background-position: center;
+  background-blend-mode: lighten;
+  width: 100%;
+  height: 150px;
+}
+.header img {
+  width: 150px;
+  height: 150px;
 }
 
 .nav-bar {
   display: flex;
   justify-content: space-between;
   height: 200px;
-  box-shadow: 0 0 3px gray;
-  background-color: rgb(245, 222, 179);
+  background: linear-gradient(rgb(222, 217, 147), rgba(232, 134, 23, 0.6));
   position: sticky;
   transition: background-color 0.4s, transform 0.5s;
   top: 0;
@@ -33,27 +49,28 @@ body {
 }
 .nav-bar .tiger-logo {
   transition: opacity 0.4s;
-  position: fixed;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  width: 320px;
-  top: -50px;
-  right: -70px;
-  cursor: pointer;
+  transform: translateX(50px) scale(1.5);
 }
 .nav-bar .nav-list {
   display: flex;
   height: 50%;
   margin-top: 0;
   align-self: flex-end;
+  list-style-type: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 3%;
 }
 .nav-bar .nav-list li {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100px;
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
   overflow: hidden;
 }
 .nav-bar .nav-list li:hover {
@@ -80,6 +97,9 @@ body {
 .nav-bar .nav-list li a:hover span {
   transform: translateY(-5px);
   color: #d22c2c;
+}
+.nav-bar:hover {
+  background: linear-gradient(rgb(222, 217, 147), rgba(232, 134, 23, 0.95));
 }
 
 .video-container {
@@ -117,31 +137,36 @@ body {
   display: none;
 }
 
-.about-tigers {
+.info-and-tables-container {
   padding: 20px;
+  margin-bottom: 100px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 10px;
 }
-.about-tigers .info-container,
-.about-tigers .tables-container {
+.info-and-tables-container .info-container,
+.info-and-tables-container .tables-container {
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 0 3px gray;
   position: relative;
 }
-.about-tigers .info-container .info-icon,
-.about-tigers .tables-container .info-icon {
+.info-and-tables-container .info-container h3,
+.info-and-tables-container .tables-container h3 {
+  text-align: center;
+}
+.info-and-tables-container .info-container .info-icon,
+.info-and-tables-container .tables-container .info-icon {
   position: absolute;
   left: 8px;
   top: 8px;
   color: #d22c2c;
 }
-.about-tigers .info-container p {
+.info-and-tables-container .info-container p {
   text-align: justify;
   line-height: 1.8;
 }
-.about-tigers .info-container img {
+.info-and-tables-container .info-container img {
   width: 100px;
   height: 100px;
   float: left;
@@ -153,16 +178,14 @@ body {
 
 .tables-container .table {
   border-collapse: collapse;
+  width: 1fr;
 }
 .tables-container .table th {
   color: #d22c2c;
-  width: 200px;
-  height: 30px;
 }
 .tables-container .table td {
   border: solid 1px rgb(84, 84, 84);
   text-align: center;
-  height: 100px;
   line-height: 1.8;
 }
 
@@ -256,6 +279,9 @@ body {
   animation: changeImg 0.6s linear 0s forwards, growImg 0.1s linear 0s forwards;
 }
 
+.image-galery-container {
+  margin-bottom: 100px;
+}
 .image-galery-container .pictures-container {
   display: flex;
   justify-content: center;
@@ -265,8 +291,10 @@ body {
   flex-wrap: wrap;
 }
 .image-galery-container .pictures-container img {
-  width: 400px;
+  max-width: 100%;
+  max-height: 250px;
   height: 300px;
+  width: 400px;
   cursor: pointer;
   border-radius: 10px;
   transition: all 0.4s;
@@ -281,12 +309,15 @@ body {
 .facts-section {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .facts-section .facts-container {
-  height: 300px;
-  width: 600px;
+  height: 400px;
+  width: 80%;
 }
 .facts-section .facts-container .fact {
+  padding: 30px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -298,24 +329,11 @@ body {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  /*
-   p{
-    width: 100%;
-    height: auto;
-    border: solid 3px blue;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    height: 100%;
-   }
-
-   */
 }
 .facts-section .facts-container .fact span {
   transform: scale(0);
   white-space: pre;
-  animation: growChar 0.3s linear 0.3s 1 forwards, hideChar 0.1s linear 6s 1 forwards;
+  animation: growChar 0.3s linear 0.3s 1 forwards;
   font-size: 1.2rem;
   font-weight: bold;
   color: #d22c2c;
@@ -324,11 +342,46 @@ body {
 .facts-section .facts-container .fact span.hide {
   visibility: hidden;
 }
+.facts-section .facts-container .fact span.shrink {
+  animation: shrinkChar 1s linear 0s 1 forwards;
+}
+
+.play-sound {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+.play-sound .btn-tiger-roar {
+  border: none;
+  background: none;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 2px #cd5c5c;
+  transition: box-shadow 0.2s ease;
+}
+.play-sound .btn-tiger-roar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: shakeImg 2s linear 0s infinite;
+}
+.play-sound .btn-tiger-roar:active {
+  transform: scale(0.95);
+}
+.play-sound .btn-tiger-roar:hover {
+  box-shadow: 0 5px 5px #d22c2c;
+}
 
 .title-info,
 .title-pictures,
 .title-facts {
   text-align: center;
+  font-family: "Montserrat Alternates", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -350,11 +403,12 @@ body {
   transform: scale(0);
 }
 .btn-scroll-up i {
-  transition: transform 0.1s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .btn-scroll-up:hover i {
   transform: scale(2);
-  text-shadow: 0px 0px 5px #cd5c5c;
+  text-shadow: 0px 0px 3px #cd5c5c;
+  color: #d22c2c;
 }
 
 .footer-container {
@@ -364,11 +418,12 @@ body {
   justify-content: center;
   align-items: center;
   color: #d22c2c;
-  padding: 50px;
-  background-color: wheat;
+  padding: 15px 50px 5px 50px;
+  background: linear-gradient(45deg, rgb(222, 217, 147), rgba(232, 134, 23, 0.5));
+  box-shadow: 0 0 10px wheat;
 }
-.footer-container h3 {
-  margin: 0;
+.footer-container h5 {
+  margin: 2px;
   padding: 0;
 }
 
@@ -411,9 +466,12 @@ body {
     transform: scale(1);
   }
 }
-@keyframes hideChar {
+@keyframes shrinkChar {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
   100% {
-    opacity: 0;
+    transform: scale(0) rotate(360deg);
   }
 }
 @keyframes changeImg {
@@ -451,14 +509,37 @@ body {
     transform: translateY(0px);
   }
 }
-@media screen and (max-width: 500px), (pointer: none), (pointer: coarse) {
+@keyframes shakeImg {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@media screen and (max-width: 650px), (pointer: none), (pointer: coarse) {
   .nav-bar {
     height: 100px;
   }
-  .nav-bar .nav-list {
-    flex-direction: column;
-  }
   .nav-bar .tiger-logo {
     display: none;
+  }
+  .nav-bar .nav-list {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+  .nav-bar .nav-list li {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+@media screen and (max-width: 1550px) {
+  table {
+    font-size: 1rem;
   }
 }/*# sourceMappingURL=css.css.map */

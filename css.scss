@@ -17,18 +17,35 @@ body {
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  font-size: 1.1rem;
-  background: linear-gradient(rgb(222, 217, 147), rgba(232, 134, 23, 0.598));
+  font-size: 1.2rem;
+  background: linear-gradient(rgb(222, 217, 147), rgba(232, 134, 23, 0.5));
   z-index: 0;
   overflow-x: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  background-image: url("/images/jungle.jpg");
+  background-color: rgba(242, 243, 239, 0.259);
+  background-size: cover;
+  background-repeat: none;
+  background-position: center;
+  background-blend-mode: lighten;
+  width: 100%;
+  height: 150px;
+  img {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 .nav-bar {
   display: flex;
   justify-content: space-between;
   height: 200px;
-  box-shadow: 0 0 3px gray;
-  background-color: rgba(245, 222, 179, 1);
+  //box-shadow: 0 0 3px gray;
+  background: linear-gradient(rgb(222, 217, 147), rgba(232, 134, 23, 0.6));
   position: sticky;
   transition: background-color 0.4s, transform 0.5s;
   top: 0;
@@ -36,12 +53,13 @@ body {
 
   .tiger-logo {
     transition: opacity 0.4s;
-    position: fixed;
+    // position: fixed;
     user-select: none;
-    width: 320px;
-    top: -50px;
-    right: -70px;
-    cursor: pointer;
+    transform: translateX(50px) scale(1.5);
+    //width: 320px;
+    // top: -50px;
+    // right: -70px;
+    // cursor: pointer;
   }
 
   .nav-list {
@@ -49,13 +67,17 @@ body {
     height: 50%;
     margin-top: 0;
     align-self: flex-end;
-
+    list-style-type: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 3%;
     li {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 100px;
-      border-radius: 5px;
+      border-radius: 5px 5px 0 0;
       overflow: hidden;
       &:hover {
         box-shadow: 0 0 2px #d22c2c;
@@ -87,6 +109,11 @@ body {
         }
       }
     }
+  }
+
+  /// navbar hover
+  &:hover {
+    background: linear-gradient(rgb(222, 217, 147), rgba(232, 134, 23, 0.95));
   }
 }
 
@@ -128,8 +155,9 @@ body {
   }
 }
 
-.about-tigers {
+.info-and-tables-container {
   padding: 20px;
+  margin-bottom: 100px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 10px;
@@ -140,6 +168,10 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 3px gray;
     position: relative;
+    h3 {
+      text-align: center;
+    }
+
     .info-icon {
       position: absolute;
       left: 8px;
@@ -165,18 +197,17 @@ body {
   }
 }
 
+////////
 .tables-container {
   .table {
     border-collapse: collapse;
+    width: 1fr;
     th {
       color: $main-text-color-str;
-      width: 200px;
-      height: 30px;
     }
     td {
       border: solid 1px rgb(84, 84, 84);
       text-align: center;
-      height: 100px;
       line-height: 1.8;
     }
   }
@@ -280,8 +311,7 @@ body {
 }
 
 .image-galery-container {
-  .title-pictures {
-  }
+  margin-bottom: 100px;
   .pictures-container {
     display: flex;
     justify-content: center;
@@ -291,8 +321,10 @@ body {
     flex-wrap: wrap;
 
     img {
-      width: 400px;
+      max-width: 100%;
+      max-height: 250px;
       height: 300px;
+      width: 400px;
       cursor: pointer;
       border-radius: 10px;
       transition: all 0.4s;
@@ -310,10 +342,13 @@ body {
 .facts-section {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   .facts-container {
-    height: 300px;
-    width: 600px;
+    height: 400px;
+    width: 80%;
     .fact {
+      padding: 30px;
       width: 100%;
       height: 100%;
       display: flex;
@@ -325,12 +360,9 @@ body {
       user-select: none;
 
       span {
-        // display: block;
         transform: scale(0);
-        //visibility: hidden;
         white-space: pre;
-        //   border: solid 1px black;
-        animation: growChar 0.3s linear 0.3s 1 forwards, hideChar 0.1s linear 6s 1 forwards;
+        animation: growChar 0.3s linear 0.3s 1 forwards;
         font-size: 1.2rem;
         font-weight: bold;
         color: $main-text-color-str;
@@ -340,19 +372,41 @@ body {
       span.hide {
         visibility: hidden;
       }
-      /*
-       p{
-        width: 100%;
-        height: auto;
-        border: solid 3px blue;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        height: 100%;
-       }
 
-       */
+      span.shrink {
+        animation: shrinkChar 1s linear 0s 1 forwards;
+      }
+    }
+  }
+}
+
+.play-sound {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+  .btn-tiger-roar {
+    border: none;
+    background: none;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 2px $main-text-color;
+    transition: box-shadow 0.2s ease;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      animation: shakeImg 2s linear 0s infinite;
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+    &:hover {
+      box-shadow: 0 5px 5px $main-text-color-str;
     }
   }
 }
@@ -361,6 +415,7 @@ body {
 .title-pictures,
 .title-facts {
   text-align: center;
+  font-family: "Montserrat Alternates", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -380,13 +435,15 @@ body {
   right: 15px;
   animation: arrowJump 2s 0s infinite;
   transform: scale(0);
+
   i {
-    transition: transform 0.1s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
   &:hover {
     i {
       transform: scale(2);
-      text-shadow: 0px 0px 5px $main-text-color;
+      text-shadow: 0px 0px 3px $main-text-color;
+      color: $main-text-color-str;
     }
   }
 }
@@ -398,11 +455,11 @@ body {
   justify-content: center;
   align-items: center;
   color: $main-text-color-str;
-  padding: 50px;
-  background-color: wheat;
-
-  h3 {
-    margin: 0;
+  padding: 15px 50px 5px 50px;
+  background: linear-gradient(45deg, rgb(222, 217, 147), rgba(232, 134, 23, 0.5));
+  box-shadow: 0 0 10px wheat;
+  h5 {
+    margin: 2px;
     padding: 0;
   }
 }
@@ -449,10 +506,12 @@ body {
     transform: scale(1);
   }
 }
-
-@keyframes hideChar {
+@keyframes shrinkChar {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
   100% {
-    opacity: 0;
+    transform: scale(0) rotate(360deg);
   }
 }
 
@@ -495,16 +554,45 @@ body {
   }
 }
 
+@keyframes shakeImg {
+  0% {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 /// SCREEN SIZE, RESPONSIVENESS
 
-@media screen and (max-width: 500px), (pointer: none), (pointer: coarse) {
+@media screen and (max-width: 650px), (pointer: none), (pointer: coarse) {
   .nav-bar {
     height: 100px;
-    .nav-list {
-      flex-direction: column;
-    }
+
     .tiger-logo {
       display: none;
     }
+
+    .nav-list {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+
+      li {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1550px) {
+  table {
+    font-size: 1rem;
   }
 }
