@@ -77,11 +77,6 @@ navbar.addEventListener("mouseenter", () => {
   navbarHoverAnimation();
 });
 
-navbar.addEventListener("mouseleave", () => {
-  mouseEnteredNav = false;
-  navBarLeaveAnimation();
-});
-
 window.addEventListener("resize", () => {
   if ((window.innerWidth <= 1000 || window.innerHeight <= 300) && !galeryModal.className.includes("close")) {
     galeryModal.classList.add("close");
