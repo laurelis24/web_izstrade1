@@ -55,27 +55,19 @@ window.onload = () => {
   setAudioVolume();
 };
 
-video.onload = () => {
-  videoLoadingScreen.classList.add("hide");
-};
+video.addEventListener("loadeddata", () => {
+  setInterval(() => {
+    videoLoadingScreen.classList.add("hide");
+  }, 1500);
+});
 
 /// EVENTS
 
-/*
-Array.from(imageGalery.children).forEach((img, idx) => {
-  img.addEventListener("click", () => openGaleryModal(idx + 1));
-});
-*/
 exitGaleryBtn.addEventListener("click", closeGaleryModal);
 leftGaleryBtn.addEventListener("click", decreaseImgIdx);
 rightGaleryBtn.addEventListener("click", increaseImgIdx);
 scrollUpBtn.addEventListener("click", scrollUp);
 audioBtn.addEventListener("click", playSound);
-
-navbar.addEventListener("mouseenter", () => {
-  mouseEnteredNav = true;
-  navbarHoverAnimation();
-});
 
 window.addEventListener("resize", () => {
   if ((window.innerWidth <= 1000 || window.innerHeight <= 300) && !galeryModal.className.includes("close")) {

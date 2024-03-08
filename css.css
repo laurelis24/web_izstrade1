@@ -16,7 +16,7 @@ body {
   font-optical-sizing: auto;
   font-size: 1.2rem;
   background: linear-gradient(rgb(222, 217, 147), rgba(232, 134, 23, 0.5));
-  z-index: 0;
+  z-index: 4;
   overflow-x: hidden;
 }
 
@@ -37,7 +37,7 @@ body {
   border: solid -3px black;
   position: fixed;
   top: 0;
-  z-index: 3;
+  z-index: 4;
   box-shadow: 0 0 3px wheat;
   transition: all 0.5s;
   background: linear-gradient(to bottom, rgba(209, 176, 115, 0.5), white);
@@ -117,23 +117,43 @@ body {
 
 .video-container {
   margin-top: 50px;
-  height: 400px;
   width: 100%;
   display: flex;
   justify-content: center;
   position: relative;
   margin-bottom: 50px;
 }
-.video-container iframe {
-  max-width: 600px;
+.video-container::after {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  width: 95%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(52, 52, 52, 0.6);
+  filter: blur(5px);
+  height: 50px;
+}
+.video-container .video {
+  width: 75%;
+  height: 100%;
+}
+.video-container .video-frame {
+  position: absolute;
+  width: calc(100% - 40px);
+  height: calc(100% + 50px);
+  transform: translateY(-25px);
+  z-index: 3;
 }
 .video-container .video-loading-screen {
-  max-width: 600px;
+  width: 75%;
   height: 100%;
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: black;
+  z-index: 1;
 }
 .video-container .video-loading-screen .circle {
   width: 100px;
