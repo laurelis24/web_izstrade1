@@ -62,7 +62,7 @@ const tigerFacts = [
 ];
 
 const tigerImageUrl = {
-  1: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYV8uCKiiPqlOyPJqgIXCp7RwQ9gEGKb5PHsLByVrTiQ&s",
+  1: "https://images6.alphacoders.com/352/352939.jpg",
   2: "https://www.itl.cat/pngfile/big/10-105136_full-hd-1080p-tiger-wallpapers-hd-desktop-backgrounds.jpg",
   3: "https://i.ytimg.com/vi/F1Lo5DPXgHE/maxresdefault.jpg",
   4: "https://www.wallpapers13.com/wp-content/uploads/2019/02/Tiger-in-the-Trees-4K-Ultra-HD-Wallpaper-for-Desktop-Laptop-Tablet-Mobile-Phones-And-TV-3840x2400-.jpg",
