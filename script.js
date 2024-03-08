@@ -14,6 +14,26 @@ const scrollUpBtn = document.querySelector(".btn-scroll-up");
 const audioBtn = document.querySelector(".btn-tiger-roar");
 const audioTigerRoar = document.getElementById("audio-tiger-roar");
 
+class NavBar {
+  constructor() {
+    this.lowestOpacity = 0.6;
+    this.lowestTurn = 0.25;
+    this.highestOpacity = 0.9;
+    this.highesTurn = 0.9;
+
+    this.turn = 0.75;
+    this.opacity = 0.6;
+  }
+
+  changeTurn(val) {
+    this.turn += val;
+  }
+
+  changeOpacity(val) {
+    this.nav += val;
+  }
+}
+
 /// settings
 const INTERVAL_BETWEEN_FACTS_MS = 5000;
 const AUDIO_VOLUME = 20;
@@ -23,6 +43,9 @@ let factIdx = 0;
 let previousScrollPos = window.scrollY;
 let timeOut = 0;
 let audioClicked = false;
+let mouseEnteredNav = false;
+
+let navBarOptions = new NavBar();
 
 const tigerFacts = [
   "Tīģera acis ir apaļas atšķirībā no mājas kaķiem, kam tās ir mazliet sašaurinātas. Tas tāpēc, ka citi kaķi labāk medī naktīs, bet tīģeri krēslas laikā, galvenokārt no rīta un vakarā.",
@@ -38,7 +61,19 @@ const tigerFacts = [
   "Apēram puse tīģeru neizdzīvo līdz pilngadībai.",
 ];
 
+const tigerImageUrl = {
+  1: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYV8uCKiiPqlOyPJqgIXCp7RwQ9gEGKb5PHsLByVrTiQ&s",
+  2: "https://www.itl.cat/pngfile/big/10-105136_full-hd-1080p-tiger-wallpapers-hd-desktop-backgrounds.jpg",
+  3: "https://i.ytimg.com/vi/F1Lo5DPXgHE/maxresdefault.jpg",
+  4: "https://www.wallpapers13.com/wp-content/uploads/2019/02/Tiger-in-the-Trees-4K-Ultra-HD-Wallpaper-for-Desktop-Laptop-Tablet-Mobile-Phones-And-TV-3840x2400-.jpg",
+  5: "https://res.cloudinary.com/jerrick/image/upload/c_scale,f_jpg,q_auto/6092be934fae18001df9f57d.jpg",
+  6: "https://static.vecteezy.com/system/resources/previews/024/615/614/large_2x/majestic-bengal-tiger-staring-beauty-in-nature-wildcat-in-focus-generated-by-ai-free-photo.jpg",
+  7: "https://wallpapermemory.com/uploads/104/tiger-background-hd-1920x1080-115590.jpg",
+  8: "https://wallpapers-hub.art/wallpaper-images/366140.jpg",
+};
+
 window.onload = () => {
+  createImages();
   textFactAnimation();
   setAudioVolume();
 };
@@ -50,14 +85,27 @@ video.onloadeddata = () => {
 };
 
 /// EVENTS
+
+/*
 Array.from(imageGalery.children).forEach((img, idx) => {
   img.addEventListener("click", () => openGaleryModal(idx + 1));
 });
+*/
 exitGaleryBtn.addEventListener("click", closeGaleryModal);
 leftGaleryBtn.addEventListener("click", decreaseImgIdx);
 rightGaleryBtn.addEventListener("click", increaseImgIdx);
 scrollUpBtn.addEventListener("click", scrollUp);
 audioBtn.addEventListener("click", playSound);
+
+navbar.addEventListener("mouseenter", () => {
+  mouseEnteredNav = true;
+  navbarHoverAnimation();
+});
+
+navbar.addEventListener("mouseleave", () => {
+  mouseEnteredNav = false;
+  navBarLeaveAnimation();
+});
 
 window.addEventListener("resize", () => {
   if ((window.innerWidth <= 1000 || window.innerHeight <= 300) && !galeryModal.className.includes("close")) {
@@ -88,8 +136,7 @@ function openGaleryModal(idx) {
 async function changeImage() {
   const newImg = document.createElement("img");
   newImg.classList.add("galery-img");
-  newImg.src = `/images/galery/tiger_galery_${imgIdx}.jpg`;
-
+  newImg.src = tigerImageUrl[imgIdx];
   imageContainer.children[0].replaceWith(newImg);
 }
 
@@ -206,4 +253,16 @@ function setAudioVolume() {
 
 function scrollUp() {
   window.scroll(0, 0);
+}
+
+function createImages() {
+  for (let i in tigerImageUrl) {
+    const newImg = document.createElement("img");
+    newImg.src = tigerImageUrl[i];
+    newImg.alt = `Tiger${i}`;
+
+    newImg.addEventListener("click", () => openGaleryModal(i));
+
+    imageGalery.appendChild(newImg);
+  }
 }
