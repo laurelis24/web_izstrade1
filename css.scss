@@ -139,29 +139,28 @@ body {
 
 .video-container {
   margin-top: 50px;
+  height: 400px;
   width: 100%;
   display: flex;
   justify-content: center;
   position: relative;
   margin-bottom: 50px;
 
-  .video {
-    width: 85%;
-    border-radius: 50px;
-    border: ridge 2px black;
-    box-shadow: 0 0 3px gray;
+  iframe {
+    max-width: 600px;
+    //  height: 100%;
   }
   .video-loading-screen {
-    width: 85%;
+    max-width: 600px;
     height: 100%;
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: black;
+    //background-color: black;
     .circle {
-      width: 25%;
-      height: 45%;
+      width: 100px;
+      height: 100px;
       border: solid 3px $main-text-color-str;
       // box-shadow: 0 0 3px $main-text-color;
       border-width: 0 0 3px 0;

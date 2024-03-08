@@ -14,26 +14,6 @@ const scrollUpBtn = document.querySelector(".btn-scroll-up");
 const audioBtn = document.querySelector(".btn-tiger-roar");
 const audioTigerRoar = document.getElementById("audio-tiger-roar");
 
-class NavBar {
-  constructor() {
-    this.lowestOpacity = 0.6;
-    this.lowestTurn = 0.25;
-    this.highestOpacity = 0.9;
-    this.highesTurn = 0.9;
-
-    this.turn = 0.75;
-    this.opacity = 0.6;
-  }
-
-  changeTurn(val) {
-    this.turn += val;
-  }
-
-  changeOpacity(val) {
-    this.nav += val;
-  }
-}
-
 /// settings
 const INTERVAL_BETWEEN_FACTS_MS = 5000;
 const AUDIO_VOLUME = 20;
@@ -43,9 +23,6 @@ let factIdx = 0;
 let previousScrollPos = window.scrollY;
 let timeOut = 0;
 let audioClicked = false;
-let mouseEnteredNav = false;
-
-let navBarOptions = new NavBar();
 
 const tigerFacts = [
   "Tīģera acis ir apaļas atšķirībā no mājas kaķiem, kam tās ir mazliet sašaurinātas. Tas tāpēc, ka citi kaķi labāk medī naktīs, bet tīģeri krēslas laikā, galvenokārt no rīta un vakarā.",
@@ -78,10 +55,8 @@ window.onload = () => {
   setAudioVolume();
 };
 
-video.onloadeddata = () => {
-  setInterval(() => {
-    videoLoadingScreen.classList.add("hide");
-  }, 1500);
+video.onload = () => {
+  videoLoadingScreen.classList.add("hide");
 };
 
 /// EVENTS
